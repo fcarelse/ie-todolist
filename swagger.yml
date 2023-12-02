@@ -1,0 +1,19 @@
+servers:
+  url: https://todolist.ie/
+paths:
+  /user/register:
+    post:
+  /user/login:
+    post:
+  /user/logout:
+    get:
+  /rest/todolist:
+    get:
+components:
+  schemas:
+    User:
+    Todolist:
+  requestBodies:
+    registration:
+    login:
+    todolist:
