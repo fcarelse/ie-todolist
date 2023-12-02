@@ -1,19 +1,69 @@
+openapi: '3.1.0'
 servers:
   url: https://todolist.ie/
 paths:
   /user/register:
     post:
+      description: Registers a new user
+      summary: Register a new user
+      requestBody:
+        description: Request to create a user account
+        required: true
+        content:
+          'application/json':
+            schema:
+              $ref: '#/components/schemas/Registration'
+      responses:
+        '200':
+          description: Registration made
+          content:
+            'application/json':
+              schema:
+                $ref: '#/components/schemas/SuccessResponse'
+        '403':
+          description: Registration failed
+          content:
+            'application/json':
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
   /user/login:
-    post:
+    get:
   /user/logout:
+    get:
+  /rest/registration:
     get:
   /rest/todolist:
     get:
 components:
   schemas:
+    Registration:
+      properties:
+        emamil:
+          type: string
     User:
     Todolist:
+    Todo:
   requestBodies:
     registration:
     login:
     todolist:
+    todo:
+  responses:
+    SuccessResponse:
+      properties:
+        success:
+          type: string
+        message:
+          type: string
+    ErrorResponse:
+      properties:
+        error:
+          type: string
+        message:
+          type: string
+  examples:
+    registration:
+      summary: An example registration
+      value:
+        email: bob@example.com
+        captcha: dC4Jk2
