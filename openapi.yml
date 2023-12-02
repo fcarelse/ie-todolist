@@ -1,6 +1,13 @@
-openapi: '3.1.0'
+openapi: '3.0.3'
+info:
+  title: Todolist Ireland
+  description: Todolist service
+  version: 0.1.1
 servers:
-  url: https://todolist.ie/
+  - url: https://todolist.ie/
+    description: Web server
+  - url: https://dev.todolist.ie/
+    description: Staging Web server
 paths:
   /user/register:
     post:
