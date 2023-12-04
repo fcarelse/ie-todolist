@@ -1,0 +1,150 @@
+openapi: 3.0.3
+info:
+  title: Todolist Ireland
+  description: Todolist service
+  version: 0.1.1
+servers:
+  - url: https://todolist.ie/
+    description: Prod Web server
+  - url: https://dev.todolist.ie/
+    description: Dev Web server
+paths:
+  /user/register:
+    post:
+      description: Registers a new user
+      summary: Register a new user
+      requestBody:
+        description: Request to create a user account
+        required: true
+        content:
+          'application/json':
+            schema:
+              $ref: '#/components/schemas/Registration'
+      responses:
+        '200':
+          description: Registration made
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SuccessResponse'
+        '403':
+          description: Registration failed
+          content:
+            'application/json':
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+  /user/login:
+    get:
+      summary: Log in to a user account
+      responses:
+        '200':
+          description: Successfully Log in
+          content:
+            'application/json':
+              schema:
+                $ref: '#/components/schemas/SuccessResponse'
+  /user/logout:
+    get:
+      summary: Log out of a user account
+      responses:
+        '200':
+          description: Successfully Log in
+          content:
+            'application/json':
+              schema:
+                type: boolean
+  /rest/registration:
+    get:
+      summary: List registrations
+      responses:
+        '200':
+          description: Successfully lists registations
+          content:
+            'application/json':
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Registration'
+  /rest/todolist:
+    get:
+      summary: Log in to a user account
+      responses:
+        '200':
+          description: Successfully Log in
+          content:
+            'application/json':
+              schema:
+                $ref: '#/components/schemas/SuccessResponse'
+components:
+  schemas:
+    Registration:
+      type: object
+      properties:
+        email:
+          type: string
+          format: email
+    User:
+      type: object
+      properties:
+        email:
+          type: string
+        salt:
+          type: string
+        hash:
+          type: string
+    Todolist:
+      type: object
+      properties:
+        email:
+          type: string
+        salt:
+          type: string
+        hash:
+          type: string
+    Todo:
+      type: object
+      properties:
+        email:
+          type: string
+        salt:
+          type: string
+        hash:
+          type: string
+    SuccessResponse:
+      description: Generic Success Response format
+      type: object
+      properties:
+        success:
+          type: string
+        message:
+          type: string
+    ErrorResponse:
+      description: Generic Success Response format
+      type: object
+      properties:
+        error:
+          type: string
+        message:
+          type: string
+  requestBodies:
+    registration:
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Registration'
+    todolist:
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Todolist'
+    todo:
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Todo'
+  examples:
+    registration:
+      summary: An example registration
+      value:
+        email: bob@example.com
+        captcha: dC4Jk2
