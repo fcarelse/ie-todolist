@@ -5,7 +5,7 @@ info:
   version: 0.1.1
 servers:
   - url: https://todolist.ie/
-    description: Web server
+    description: Prod Web server
   - url: https://dev.todolist.ie/
     description: Staging Web server
 paths:
