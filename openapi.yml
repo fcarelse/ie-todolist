@@ -7,7 +7,7 @@ servers:
   - url: https://todolist.ie/
     description: Prod Web server
   - url: https://dev.todolist.ie/
-    description: Staging Web server
+    description: Dev Web server
 paths:
   /user/register:
     post:
