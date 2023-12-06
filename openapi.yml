@@ -92,24 +92,34 @@ components:
           type: string
         hash:
           type: string
+        roles:
+          type: array
+          items:
+            $ref: '#/components/schemas/UserRole'
     Todolist:
       type: object
       properties:
-        email:
-          type: string
-        salt:
-          type: string
+        todos:
+          type: array
+          items:
+            $ref: '#/components/schemas/Todo'
         hash:
           type: string
     Todo:
       type: object
       properties:
-        email:
+        summary:
           type: string
-        salt:
+        details:
           type: string
-        hash:
-          type: string
+        status:
+          $ref: '#/components/schemas/TodoStatus'
+    TodoStatus:
+      type: string
+      enum: [todo, done]
+    UserRole:
+      type: string
+      enum: [USER, ADMIN]
     SuccessResponse:
       description: Generic Success Response format
       type: object
