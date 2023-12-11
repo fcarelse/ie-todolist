@@ -1,16 +1,23 @@
-package ie.todolist.api.Model;
+package ie.todolist.api.service;
 
 import jakarta.persistence.Entity;
-import lombok.Getter;
-import lombok.Setter;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.Id;
+import jakarta.persistence.Table;
+import lombok.*;
 
 @Entity
+@Data
+@Builder
+@NoArgsConstructor
+@AllArgsConstructor
+@Table(name = "todolist")
 public class Todolist {
-  @Getter @Setter
+  @Id
+  @GeneratedValue
+  private Integer id;
   private String summary;
-  @Getter @Setter
   private String details;
-  @Getter @Setter
   private TodoStatus status;
 
   public enum TodoStatus{

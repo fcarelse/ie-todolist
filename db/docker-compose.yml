@@ -13,17 +13,3 @@ services:
     ports:
       - "${POSTGRES_PORT}:5432"
     restart: unless-stopped
-  pgadmin:
-    image: dpage/pgadmin4
-    container_name: pgadmin4_todolist
-    restart: always
-    ports:
-      - "8888:80"
-    environment:
-      PGADMIN_DEFAULT_EMAIL: pgadmin@todolist.ie
-      PGADMIN_DEFAULT_PASSWORD: pgadminpassword
-    volumes:
-      - pgadmin-data:/var/lib/pgadmin
-
-volumes:
-  pgadmin-data:

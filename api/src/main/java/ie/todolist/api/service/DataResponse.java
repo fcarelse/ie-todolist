@@ -1,4 +1,4 @@
-package ie.todolist.api.Model;
+package ie.todolist.api.service;
 
 import lombok.EqualsAndHashCode;
 import lombok.Getter;
@@ -9,7 +9,7 @@ import java.util.Map;
 
 @ToString
 @EqualsAndHashCode(callSuper = true)
-public class DataResponse extends MessageResponse{
+public class DataResponse extends MessageResponse {
   @Getter @Setter
   private Map<String, Object> data;
 

@@ -1,4 +1,4 @@
-package ie.todolist.api.Model;
+package ie.todolist.api.service;
 
 import lombok.*;
 

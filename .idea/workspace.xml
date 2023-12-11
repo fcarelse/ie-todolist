@@ -5,18 +5,40 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="dd7dabf4-9a2a-406c-9294-e6484e81d4d5" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/.vscode/launch.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/db/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/db/docker-compose.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/api/src/main/java/ie/todolist/api/TodolistAPI.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/api/src/main/java/ie/todolist/api/auth/User.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/api/src/main/java/ie/todolist/api/service/Todo.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.env.example" beforeDir="false" afterPath="$PROJECT_DIR$/.env.example" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docker-compose.yml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/api/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/api/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/api/src/main/java/ie/todolist/api/ApiApplication.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/api/src/main/java/ie/todolist/api/Controller/AuthenticationController.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/api/src/main/java/ie/todolist/api/Controller/AuthorizationController.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/api/src/main/java/ie/todolist/api/Controller/TodolistController.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/api/src/main/java/ie/todolist/api/Controller/UserManagementController.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/api/src/main/java/ie/todolist/api/Model/DataResponse.java" beforeDir="false" afterPath="$PROJECT_DIR$/api/src/main/java/ie/todolist/api/service/DataResponse.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/api/src/main/java/ie/todolist/api/Model/MessageResponse.java" beforeDir="false" afterPath="$PROJECT_DIR$/api/src/main/java/ie/todolist/api/service/MessageResponse.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/api/src/main/java/ie/todolist/api/Model/Registration.java" beforeDir="false" afterPath="$PROJECT_DIR$/api/src/main/java/ie/todolist/api/auth/Registration.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/api/src/main/java/ie/todolist/api/Model/Todo.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/api/src/main/java/ie/todolist/api/Model/Todolist.java" beforeDir="false" afterPath="$PROJECT_DIR$/api/src/main/java/ie/todolist/api/service/Todolist.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/api/src/main/java/ie/todolist/api/Model/User.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/api/src/main/resources/application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/api/src/main/resources/application.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/api/src/main/resources/defaultGroupSchema.sql" beforeDir="false" afterPath="$PROJECT_DIR$/api/src/main/resources/defaultGroupSchema.sql" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/api/src/main/resources/defaultUserSchema.sql" beforeDir="false" afterPath="$PROJECT_DIR$/api/src/main/resources/defaultUserSchema.sql" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/db/docker-compose.yml" beforeDir="false" afterPath="$PROJECT_DIR$/db/docker-compose.yml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Enum" />
+        <option value="Class" />
+      </list>
+    </option>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -39,11 +61,19 @@
   "keyToString": {
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
-    "git-widget-placeholder": "feature-api",
-    "settings.editor.selected.configurable": "terminal"
+    "git-widget-placeholder": "feature-db",
+    "last_opened_file_path": "C:/Frank/projects/fcarelse/ie-todolist/db",
+    "settings.editor.selected.configurable": "proofread"
   }
 }]]></component>
   <component name="RecentsManager">
+    <key name="CreateClassDialog.RecentsKey">
+      <recent name="ie.todolist.api.auth" />
+      <recent name="ie.todolist.api.config" />
+    </key>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Frank\projects\fcarelse\ie-todolist\db" />
+    </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\Frank\projects\fcarelse\ie-todolist\db" />
     </key>
@@ -52,7 +82,15 @@
     <configuration name="Todolist API" type="Application" factoryName="Application">
       <option name="ALTERNATIVE_JRE_PATH" value="$PROJECT_DIR$/../../../../Program Files/Java/jdk-21" />
       <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="true" />
-      <option name="MAIN_CLASS_NAME" value="ie.todolist.api.ApiApplication" />
+      <envs>
+        <env name="API_PORT" value="3000" />
+        <env name="POSTGRES_SERVER" value="localhost" />
+        <env name="POSTGRES_PORT" value="5332" />
+        <env name="POSTGRES_PATH" value="todolist" />
+        <env name="POSTGRES_USERNAME" value="todolist" />
+        <env name="POSTGRES_PASSWORD" value="password" />
+      </envs>
+      <option name="MAIN_CLASS_NAME" value="ie.todolist.api.TodolistAPI" />
       <module name="api" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -66,6 +104,10 @@
       </deployment>
       <method v="2" />
     </configuration>
+    <list>
+      <item itemvalue="Application.Todolist API" />
+      <item itemvalue="Docker.db: Compose Deployment" />
+    </list>
     <recent_temporary>
       <list>
         <item itemvalue="Docker.db: Compose Deployment" />

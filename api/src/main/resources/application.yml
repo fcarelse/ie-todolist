@@ -2,17 +2,23 @@ server:
   port: ${API_PORT}
 
 spring:
+  session:
+    jdbc:
+      table-name: SESSIONS
   datasource:
     url: jdbc:postgresql://${POSTGRES_SERVER}:${POSTGRES_PORT}/${POSTGRES_PATH}
+#    driver-class-name: org.postgresql.Driver
     username: ${POSTGRES_USERNAME}
     password: ${POSTGRES_PASSWORD}
   jpa:
     hibernate:
-      ddl-auto: create
+      ddl-auto: create-drop
     properties:
       hibernate:
         dialect: org.hibernate.dialect.PostgreSQLDialect
         format_sql: true
+    database: postgresql
+    database-platform: org.hibernate.dialect.PostgreSQLDialect
     show-sql: true
   main:
     web-application-type: servlet
