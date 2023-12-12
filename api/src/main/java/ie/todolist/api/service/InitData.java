@@ -36,8 +36,8 @@ public class InitData {
     userRepository.save(user);
     user = userRepository.findByEmail("bob@todolist.ie")
       .orElseThrow();
-    todoRepository.save(new Todo(null,user.getId(),"First Todo","Finish Openapi.yml"));
-    todoRepository.save(new Todo(null,user.getId(),"Second Todo","Frontend"));
+    todoRepository.save(new Todo(null,user.getId(),1,"First Todo","Finish Openapi.yml"));
+    todoRepository.save(new Todo(null,user.getId(),2,"Second Todo","Frontend"));
     var todos = todoRepository.findByUserId(user.getId())
       .orElseThrow();
     var todoIds = todos.stream().map(Todo::getId).toList();
