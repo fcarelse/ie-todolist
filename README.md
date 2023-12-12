@@ -20,7 +20,9 @@ EMAIL_PASSWORD=password
 EMAIL_FROM=no-reply@example.com
 ```
 
-To Login use endpoint:
+To Login use:
+
+POST endpoint:
 localhost:3000/user/login
 ```json
 {
@@ -29,5 +31,7 @@ localhost:3000/user/login
 }
 ```
 
-Can take the token given and use at Bearer token for endpoint:
+Can take the token given and use as Bearer token
+
+Get endpoint:
 localhost:3000/rest/todos
