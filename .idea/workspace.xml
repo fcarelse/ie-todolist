@@ -5,27 +5,23 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="dd7dabf4-9a2a-406c-9294-e6484e81d4d5" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/api/src/main/java/ie/todolist/api/TodolistAPI.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/api/src/main/java/ie/todolist/api/auth/User.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/api/src/main/java/ie/todolist/api/service/Todo.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.env.example" beforeDir="false" afterPath="$PROJECT_DIR$/.env.example" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/api/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/api/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/api/src/main/java/ie/todolist/api/ApiApplication.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/api/src/main/java/ie/todolist/api/Controller/AuthenticationController.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/api/src/main/java/ie/todolist/api/Controller/AuthorizationController.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/api/src/main/java/ie/todolist/api/Controller/TodolistController.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/api/src/main/java/ie/todolist/api/Controller/UserManagementController.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/api/src/main/java/ie/todolist/api/Model/DataResponse.java" beforeDir="false" afterPath="$PROJECT_DIR$/api/src/main/java/ie/todolist/api/service/DataResponse.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/api/src/main/java/ie/todolist/api/Model/MessageResponse.java" beforeDir="false" afterPath="$PROJECT_DIR$/api/src/main/java/ie/todolist/api/service/MessageResponse.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/api/src/main/java/ie/todolist/api/Model/Registration.java" beforeDir="false" afterPath="$PROJECT_DIR$/api/src/main/java/ie/todolist/api/auth/Registration.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/api/src/main/java/ie/todolist/api/Model/Todo.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/api/src/main/java/ie/todolist/api/Model/Todolist.java" beforeDir="false" afterPath="$PROJECT_DIR$/api/src/main/java/ie/todolist/api/service/Todolist.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/api/src/main/java/ie/todolist/api/Model/User.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/api/src/main/java/ie/todolist/api/TodolistAPI.java" beforeDir="false" afterPath="$PROJECT_DIR$/api/src/main/java/ie/todolist/api/TodolistAPI.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/api/src/main/java/ie/todolist/api/auth/AuthenticationController.java" beforeDir="false" afterPath="$PROJECT_DIR$/api/src/main/java/ie/todolist/api/auth/AuthenticationController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/api/src/main/java/ie/todolist/api/auth/AuthenticationService.java" beforeDir="false" afterPath="$PROJECT_DIR$/api/src/main/java/ie/todolist/api/auth/AuthenticationService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/api/src/main/java/ie/todolist/api/auth/Registration.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/api/src/main/java/ie/todolist/api/auth/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/api/src/main/java/ie/todolist/api/auth/User.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/api/src/main/java/ie/todolist/api/config/JwtAuthFilter.java" beforeDir="false" afterPath="$PROJECT_DIR$/api/src/main/java/ie/todolist/api/config/JwtAuthFilter.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/api/src/main/java/ie/todolist/api/config/JwtService.java" beforeDir="false" afterPath="$PROJECT_DIR$/api/src/main/java/ie/todolist/api/config/JwtService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/api/src/main/java/ie/todolist/api/config/Security.java" beforeDir="false" afterPath="$PROJECT_DIR$/api/src/main/java/ie/todolist/api/config/Security.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/api/src/main/java/ie/todolist/api/service/Todo.java" beforeDir="false" afterPath="$PROJECT_DIR$/api/src/main/java/ie/todolist/api/service/Todo.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/api/src/main/java/ie/todolist/api/service/Todolist.java" beforeDir="false" afterPath="$PROJECT_DIR$/api/src/main/java/ie/todolist/api/service/Todolist.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/api/src/main/java/ie/todolist/api/service/TodolistController.java" beforeDir="false" afterPath="$PROJECT_DIR$/api/src/main/java/ie/todolist/api/service/TodolistController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/api/src/main/resources/application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/api/src/main/resources/application.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/api/src/main/resources/defaultGroupSchema.sql" beforeDir="false" afterPath="$PROJECT_DIR$/api/src/main/resources/defaultGroupSchema.sql" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/api/src/main/resources/defaultUserSchema.sql" beforeDir="false" afterPath="$PROJECT_DIR$/api/src/main/resources/defaultUserSchema.sql" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/db/docker-compose.yml" beforeDir="false" afterPath="$PROJECT_DIR$/db/docker-compose.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/db/.env.example" beforeDir="false" afterPath="$PROJECT_DIR$/db/.env.example" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/openapi.yml" beforeDir="false" afterPath="$PROJECT_DIR$/openapi.yml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -36,6 +32,7 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="Enum" />
+        <option value="Interface" />
         <option value="Class" />
       </list>
     </option>
@@ -61,7 +58,7 @@
   "keyToString": {
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
-    "git-widget-placeholder": "feature-db",
+    "git-widget-placeholder": "feature-api",
     "last_opened_file_path": "C:/Frank/projects/fcarelse/ie-todolist/db",
     "settings.editor.selected.configurable": "proofread"
   }
@@ -84,11 +81,16 @@
       <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="true" />
       <envs>
         <env name="API_PORT" value="3000" />
-        <env name="POSTGRES_SERVER" value="localhost" />
-        <env name="POSTGRES_PORT" value="5332" />
-        <env name="POSTGRES_PATH" value="todolist" />
-        <env name="POSTGRES_USERNAME" value="todolist" />
+        <env name="EMAIL_FROM" value="no-reply@todolist.ie" />
+        <env name="EMAIL_HOST" value="todolist.ie" />
+        <env name="EMAIL_PASSWORD" value="TodolistUberPassword" />
+        <env name="EMAIL_PORT" value="587" />
+        <env name="EMAIL_USERNAME" value="no-reply@todolist.ie" />
         <env name="POSTGRES_PASSWORD" value="password" />
+        <env name="POSTGRES_PATH" value="todolist" />
+        <env name="POSTGRES_PORT" value="5332" />
+        <env name="POSTGRES_SERVER" value="localhost" />
+        <env name="POSTGRES_USERNAME" value="todolist" />
       </envs>
       <option name="MAIN_CLASS_NAME" value="ie.todolist.api.TodolistAPI" />
       <module name="api" />
@@ -124,5 +126,8 @@
       <updated>1702033546427</updated>
     </task>
     <servers />
+  </component>
+  <component name="UnknownFeatures">
+    <option featureType="com.intellij.fileTypeFactory" implementationName=".env" />
   </component>
 </project>

@@ -1,14 +1,14 @@
 package ie.todolist.api.auth;
 
+import ie.todolist.api.service.MessageResponse;
+import jakarta.servlet.http.HttpServletRequest;
+import org.springframework.lang.NonNull;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 @RestController
-@RequestMapping("/auth")
+@RequestMapping("/user")
 @RequiredArgsConstructor
 public class AuthenticationController {
 
@@ -21,10 +21,17 @@ public class AuthenticationController {
     return ResponseEntity.ok(service.register(request));
   }
 
-  @PostMapping("/authenticate")
+  @PostMapping("/login")
   public ResponseEntity<AuthenticationResponse> authenticate(
     @RequestBody AuthenticationRequest request
   ){
-    return ResponseEntity.ok(service.authenticate(request));
+    return ResponseEntity.ok(service.login(request));
+  }
+
+  @PostMapping("/logout")
+  public ResponseEntity<MessageResponse> logout(
+    @NonNull @RequestBody HttpServletRequest request
+  ){
+    return ResponseEntity.ok(service.logout(request));
   }
 }

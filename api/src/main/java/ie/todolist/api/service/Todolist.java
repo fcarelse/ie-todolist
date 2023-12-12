@@ -6,6 +6,8 @@ import jakarta.persistence.Id;
 import jakarta.persistence.Table;
 import lombok.*;
 
+import java.util.List;
+
 @Entity
 @Data
 @Builder
@@ -16,9 +18,11 @@ public class Todolist {
   @Id
   @GeneratedValue
   private Integer id;
+  private Integer userId;
   private String summary;
   private String details;
   private TodoStatus status;
+  private List<Integer> todoIds;
 
   public enum TodoStatus{
     TODO("Todo"),

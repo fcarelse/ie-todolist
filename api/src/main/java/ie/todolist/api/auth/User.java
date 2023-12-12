@@ -21,8 +21,11 @@ public class User implements UserDetails {
   private Integer id;
   private String first;
   private String last;
+  @Column(unique = true)
   private String email;
   private String password;
+  private Boolean locked;
+  private Boolean verified;
 
   @Enumerated(EnumType.STRING)
   private UserRole role;
@@ -44,7 +47,7 @@ public class User implements UserDetails {
 
   @Override
   public boolean isAccountNonLocked() {
-    return true;
+    return !getLocked();
   }
 
   @Override
@@ -54,6 +57,6 @@ public class User implements UserDetails {
 
   @Override
   public boolean isEnabled() {
-    return true;
+    return getVerified();
   }
 }

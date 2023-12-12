@@ -22,7 +22,7 @@ public class Security {
   private final JwtAuthFilter jwtAuthFilter;
   private final AuthenticationProvider authenticationProvider;
   private static final String[] WHITELIST = {
-    "/auth/**"
+    "/user/**"
   };
 
   @Bean
@@ -31,12 +31,13 @@ public class Security {
       .csrf(AbstractHttpConfigurer::disable)
       .authorizeHttpRequests(authorize->authorize
         .requestMatchers(WHITELIST).permitAll()
-        .anyRequest().authenticated()
+          .anyRequest().permitAll()
+//        .anyRequest().authenticated()
       )
       .sessionManagement(session->session.sessionCreationPolicy(STATELESS))
 //      .authenticationProvider(authenticationProvider)
       .addFilterBefore(jwtAuthFilter, UsernamePasswordAuthenticationFilter.class)
-      .logout(logout->logout.logoutUrl("/auth/logout"))
+      .logout(logout->logout.logoutUrl("/user/logout"))
 //      .formLogin(formLogin->formLogin
 //        .loginPage("/auth/authenticate")
 //        .permitAll()
