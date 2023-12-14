@@ -1,15 +1,15 @@
 server:
-  port: ${API_PORT}
+  port: ${API_PORT:3300}
 
 spring:
   session:
     jdbc:
       table-name: SESSIONS
   datasource:
-    url: jdbc:postgresql://${POSTGRES_SERVER}:${POSTGRES_PORT}/${POSTGRES_PATH}
-#    driver-class-name: org.postgresql.Driver
-    username: ${POSTGRES_USERNAME}
-    password: ${POSTGRES_PASSWORD}
+    url: jdbc:postgresql://${POSTGRES_SERVER:localhost}:${POSTGRES_PORT:5432}/${POSTGRES_PATH:todolist}
+    driver-class-name: org.postgresql.Driver
+    username: ${POSTGRES_USERNAME:todolist}
+    password: ${POSTGRES_PASSWORD:password}
   jpa:
     hibernate:
       ddl-auto: create-drop

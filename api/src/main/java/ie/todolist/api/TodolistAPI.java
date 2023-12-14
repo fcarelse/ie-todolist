@@ -6,6 +6,7 @@ import ie.todolist.api.service.Todo;
 import ie.todolist.api.service.Todolist;
 import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.context.event.ApplicationReadyEvent;
@@ -27,6 +28,9 @@ import java.util.List;
 @Configuration
 @RequiredArgsConstructor
 public class TodolistAPI {
+
+	@Value("${server.port:3000}")
+	private int port;
 
 	private final UserRepository userRepository;
 //	private final PasswordEncoder passwordEncoder;

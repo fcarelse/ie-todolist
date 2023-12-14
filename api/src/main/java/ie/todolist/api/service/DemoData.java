@@ -5,25 +5,20 @@ import ie.todolist.api.auth.UserRepository;
 import ie.todolist.api.auth.UserRole;
 import lombok.RequiredArgsConstructor;
 import org.springframework.boot.context.event.ApplicationReadyEvent;
-import org.springframework.context.annotation.Bean;
 import org.springframework.context.event.EventListener;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Component;
-import org.springframework.stereotype.Controller;
-import org.springframework.stereotype.Service;
-
-import java.util.List;
 
 @Component
 @RequiredArgsConstructor
-public class InitData {
+public class DemoData {
   private final PasswordEncoder passwordEncoder;
   private final UserRepository userRepository;
   private final TodoRepository todoRepository;
   private final TodolistRepository todolistRepository;
 
   @EventListener(ApplicationReadyEvent.class)
-  public void initData() {
+  public void initDemoData() {
     var user = User.builder()
       .first("Bob")
       .last("Smith")
@@ -47,6 +42,7 @@ public class InitData {
       .todoIds(todoIds)
       .build();
     todolistRepository.save(todolist);
+    System.out.println("Initialized Demo Data");
   }
 
 }
