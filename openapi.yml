@@ -19,7 +19,7 @@ paths:
         content:
           'application/json':
             schema:
-              $ref: '#/components/schemas/Registration'
+              $ref: '#/components/schemas/User'
       responses:
         '200':
           description: Registration made
@@ -53,63 +53,69 @@ paths:
             'application/json':
               schema:
                 type: boolean
-  /rest/registration:
+  /rest/user:
     get:
-      summary: List registrations
+      summary: List users
       responses:
         '200':
-          description: Successfully lists registations
+          description: Successfully lists users
           content:
             'application/json':
               schema:
                 type: array
                 items:
-                  $ref: '#/components/schemas/Registration'
-  /rest/todolist:
+                  $ref: '#/components/schemas/User'
+  /rest/todos:
     get:
-      summary: Log in to a user account
+      summary: Retrieve all todos for the current user
       responses:
         '200':
-          description: Successfully Log in
+          description: Selected Todolist
           content:
             'application/json':
               schema:
                 $ref: '#/components/schemas/SuccessResponse'
 components:
   schemas:
-    Registration:
-      type: object
-      properties:
-        email:
-          type: string
-          format: email
     User:
       type: object
       properties:
         email:
           type: string
-        salt:
+        password:
           type: string
-        hash:
-          type: string
+        locked:
+          type: boolean
+        verified:
+          type: boolean
+        roles:
+          type: array
+          items:
+            $ref: '#/components/schemas/UserRole'
     Todolist:
       type: object
       properties:
-        email:
-          type: string
-        salt:
-          type: string
+        todos:
+          type: array
+          items:
+            $ref: '#/components/schemas/Todo'
         hash:
           type: string
     Todo:
       type: object
       properties:
-        email:
+        summary:
           type: string
-        salt:
+        details:
           type: string
-        hash:
-          type: string
+        status:
+          $ref: '#/components/schemas/TodoStatus'
+    TodoStatus:
+      type: string
+      enum: [todo, done]
+    UserRole:
+      type: string
+      enum: [USER, ADMIN]
     SuccessResponse:
       description: Generic Success Response format
       type: object
@@ -131,7 +137,7 @@ components:
       content:
         application/json:
           schema:
-            $ref: '#/components/schemas/Registration'
+            $ref: '#/components/schemas/User'
     todolist:
       content:
         application/json:
@@ -147,4 +153,4 @@ components:
       summary: An example registration
       value:
         email: bob@example.com
-        captcha: dC4Jk2
+        password: aPassword4239

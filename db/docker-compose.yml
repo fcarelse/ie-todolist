@@ -1,0 +1,15 @@
+version: "3"
+
+services:
+  todolistdb:
+    container_name: postgres-todolist
+    image: postgres
+    environment:
+      POSTGRES_USER: ${POSTGRES_USERNAME}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD}
+      PGDATA: /data/postgres
+    volumes:
+      - "./data:/data/postgres"
+    ports:
+      - "${POSTGRES_PORT}:5432"
+    restart: unless-stopped
