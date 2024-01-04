@@ -1,4 +1,4 @@
-version: '3.3'
+version: "3.3"
 services:
   todolist_db:
     container_name: todolist-postgres
@@ -10,18 +10,17 @@ services:
     volumes:
       - "./db/data:/data/postgres"
     ports:
-      - "5432:5432"
+      - "${POSTGRES_PORT}:5432"
     restart: unless-stopped
     env_file:
-      - ./db/.env
+      - ./.env
 
   todolist-tomcat-mysql:
     container_name: todolist-tomcat-mysql
     image: mysql:5.7
     ports:
       - "3306:3306"
-    env_file:
-      ./.env
+    env_file: ./.env
     # environment:
     #   MYSQL_ROOT_PASSWORD: root
     #   MYSQL_DATABASE: testdb1
@@ -35,9 +34,8 @@ services:
       - todolist-tomcat-mysql
     image: phpmyadmin/phpmyadmin
     ports:
-      - '8080:80'
-    env_file:
-      ./.env
+      - "${PHPMYADMIN_PORT}:80"
+    env_file: ./.env
     # environment:
     #   PMA_HOST: todolist-tomcat-mysql
     #   MYSQL_PORT: 3306
@@ -51,16 +49,14 @@ services:
     container_name: todolist-tomcat
     image: tomcat:10-jdk21-openjdk
     volumes:
-      - ./tomcat/:/usr/local/tomcat/webapps/
+      - "./tomcat/:/usr/local/tomcat/webapps/"
     ports:
-      - '8380:8080'
-      - '3003:3000'
-    env_file:
-      ./.env
+      - "${TOMCAT_PORT}:8080"
+      - "${API_PORT}:${API_PORT}"
+    env_file: ./.env
     # environment:
     #   MYSQL_ROOT_PASSWORD: root
     #   MYSQL_DATABASE: testdb1
     #   MYSQL_PORT: 3306
     #   MYSQL_USER: testuser
     #   MYSQL_PASSWORD: root
-

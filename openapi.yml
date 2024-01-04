@@ -4,7 +4,7 @@ info:
   description: Todolist service
   version: 0.1.1
 servers:
-  - url: https://todolist.ie/
+  - url: https://api.todolist.ie/
     description: Prod Web server
   - url: https://dev.todolist.ie/
     description: Dev Web server
@@ -34,8 +34,15 @@ paths:
               schema:
                 $ref: '#/components/schemas/ErrorResponse'
   /user/login:
-    get:
+    post:
       summary: Log in to a user account
+      requestBody:
+        description: Request to create a user account
+        required: true
+        content:
+          'application/json':
+            schema:
+              $ref: '#/components/schemas/Credentials'
       responses:
         '200':
           description: Successfully Log in
@@ -92,6 +99,13 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/UserRole'
+    Credentials:
+      type: object
+      properties:
+        email:
+          type: string
+        password:
+          type: string
     Todolist:
       type: object
       properties:
@@ -138,6 +152,11 @@ components:
         application/json:
           schema:
             $ref: '#/components/schemas/User'
+    credentials:
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Credentials'
     todolist:
       content:
         application/json:
@@ -154,3 +173,8 @@ components:
       value:
         email: bob@example.com
         password: aPassword4239
+    credentials:
+      summary: Example login credentials
+      value:
+        email: bob@todolist.ie
+        password: password
