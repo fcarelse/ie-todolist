@@ -10,16 +10,28 @@
 	</parent>
 	<groupId>ie.todolist</groupId>
 	<artifactId>api</artifactId>
-	<version>0.0.1-SNAPSHOT</version>
+	<version>1.0.1</version>
 	<name>api</name>
+	<packaging>war</packaging>
 	<description>Todolist.ie API</description>
 	<properties>
-		<java.version>21</java.version>
+		<java.version>19</java.version>
 	</properties>
 	<dependencies>
+		<!--		<dependency>-->
+		<!--			<groupId>org.springframework.boot</groupId>-->
+		<!--			<artifactId>spring-boot-starter-mail</artifactId>-->
+		<!--		</dependency>-->
+
+				<dependency>
+			<groupId>org.springframework.security</groupId>
+			<artifactId>spring-security-config</artifactId>
+			<version>6.1.4</version>
+		</dependency>
 		<dependency>
-			<groupId>org.springframework.boot</groupId>
-			<artifactId>spring-boot-starter-mail</artifactId>
+			<groupId>org.springframework.security</groupId>
+			<artifactId>spring-security-crypto</artifactId>
+			<version>6.1.4</version>
 		</dependency>
 		<dependency>
 			<groupId>io.jsonwebtoken</groupId>
@@ -50,7 +62,7 @@
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-data-jpa</artifactId>
-			<version>3.1.2</version>
+			<version>3.2.0</version>
 		</dependency>
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
@@ -84,9 +96,46 @@
 				<artifactId>spring-boot-maven-plugin</artifactId>
 			</plugin>
 			<plugin>
+				<!-- Build an executable JAR -->
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-jar-plugin</artifactId>
+				<version>3.1.0</version>
+				<configuration>
+					<archive>
+						<manifest>
+<!--							<addClasspath>true</addClasspath>-->
+							<classpathPrefix>lib/</classpathPrefix>
+							<mainClass>ie.todolist.api.TodolistAPI</mainClass>
+						</manifest>
+					</archive>
+					<includes>
+<!--						<include>**/api/*</include>-->
+<!--						<include>**/service/*</include>-->
+<!--						<include>**/auth/*</include>-->
+						<include>**/config/*</include>
+					</includes>
+				</configuration>
+			</plugin>
+			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-war-plugin</artifactId>
 				<version>3.3.1</version>
+				<configuration>
+					<archive>
+						<manifest>
+							<addClasspath>true</addClasspath>
+							<classpathPrefix>lib/</classpathPrefix>
+							<mainClass>ie.todolist.api.TodolistAPI</mainClass>
+						</manifest>
+					</archive>
+<!--					<webResources>-->
+<!--						<resource>-->
+<!--							<directory>${basedir}/src/main</directory>-->
+<!--							<filtering>true</filtering>-->
+<!--							<targetPath>/WEB-INF/</targetPath>-->
+<!--						</resource>-->
+<!--					</webResources>-->
+				</configuration>
 			</plugin>
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>

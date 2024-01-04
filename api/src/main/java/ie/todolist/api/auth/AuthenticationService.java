@@ -1,6 +1,5 @@
 package ie.todolist.api.auth;
 
-import ie.todolist.api.config.JwtService;
 import ie.todolist.api.service.MessageResponse;
 import jakarta.servlet.http.HttpServletRequest;
 import org.springframework.lang.NonNull;
@@ -9,7 +8,6 @@ import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
-import org.springframework.web.bind.annotation.RequestBody;
 
 import java.util.Date;
 

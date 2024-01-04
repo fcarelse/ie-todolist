@@ -15,7 +15,7 @@ import java.util.List;
 
 @RestController
 @AllArgsConstructor
-@RequestMapping("/rest")
+@RequestMapping("/api/rest")
 public class TodolistController {
 
   private final TodolistRepository todolistRepository;
