@@ -36,7 +36,7 @@ public class Security {
       .sessionManagement(session->session.sessionCreationPolicy(STATELESS))
 //      .authenticationProvider(authenticationProvider)
       .addFilterBefore(jwtAuthFilter, UsernamePasswordAuthenticationFilter.class)
-      .logout(logout->logout.logoutUrl("/user/logout"))
+//      .logout(logout->logout.logoutUrl("/api/user/logout"))
 //      .formLogin(formLogin->formLogin
 //        .loginPage("/auth/authenticate")
 //        .permitAll()

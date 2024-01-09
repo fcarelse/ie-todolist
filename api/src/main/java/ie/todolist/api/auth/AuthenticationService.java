@@ -62,7 +62,7 @@ public class AuthenticationService {
       .build();
   }
 
-  public MessageResponse logout(@NonNull HttpServletRequest request) {
+  public MessageResponse logout(HttpServletRequest request) {
     final String authHeader = request.getHeader("Authorization");
     final String jwt;
     final String sessionID;

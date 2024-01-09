@@ -34,7 +34,7 @@ public class TodolistController {
   }
 
   @GetMapping("/todolists")
-  public ResponseEntity<List<Todolist>> getTodolists(@RequestBody TodolistsRequest request){
+  public ResponseEntity<List<Todolist>> getTodolists(TodolistsRequest request){
 //    Authentication auth = SecurityContextHolder.getContext().getAuthentication();
 //    var user = userRepository.findByEmail(auth.getName());
 //    var userId = user.getId();
