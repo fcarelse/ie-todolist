@@ -30,7 +30,7 @@ public class AuthenticationController {
 
   @PostMapping("/logout")
   public ResponseEntity<MessageResponse> logout(
-    @NonNull @RequestBody HttpServletRequest request
+    HttpServletRequest request
   ){
     return ResponseEntity.ok(service.logout(request));
   }
