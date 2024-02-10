@@ -1,0 +1,23 @@
+version: "3"
+
+services:
+  todolistdbonly:
+    container_name: todolist-dbonly
+    image: postgres
+    env_file:
+      - ./.env
+      - ./.env.example
+    environment:
+      POSTGRES_USER: ${POSTGRES_USER}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD}
+      PGDATA: /data/postgres
+    volumes:
+      - "./db/data:/data/postgres"
+    ports:
+      - "${POSTGRES_PORT}:5432"
+    restart: unless-stopped
+    networks:
+      - ie-todolist-network
+
+networks:
+  ie-todolist-network:

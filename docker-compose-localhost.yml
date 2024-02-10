@@ -3,6 +3,8 @@ services:
   todolist_db:
     container_name: todolist-postgres
     image: postgres
+    env_file:
+      - ./.env
     environment:
       POSTGRES_USER: ${POSTGRES_USER}
       POSTGRES_PASSWORD: ${POSTGRES_PASSWORD}
@@ -12,8 +14,6 @@ services:
     ports:
       - "${POSTGRES_PORT}:5432"
     restart: unless-stopped
-    env_file:
-      - ./.env
     networks:
       - ie-todolist-network
 
@@ -21,7 +21,7 @@ services:
     container_name: todolist-tomcat-mysql
     image: mysql:5.7
     ports:
-      - "3306:3306"
+      - "${MYSQL_PORT}:3306"
     env_file: ./.env
     # environment:
     #   MYSQL_ROOT_PASSWORD: root
