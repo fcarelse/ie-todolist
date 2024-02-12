@@ -40,11 +40,10 @@ services:
       - ./.env
       - ./.env.example
     environment:
-      - POSTGRES_USER=${POSTGRES_USER}
-      - POSTGRES_PASSWORD=${POSTGRES_PASSWORD}
-      - PGDATA=/data/postgres
+      - NGINX_HOST=demo.todolist.ie
+      - NGINX_PORT=80
     volumes:
-      - "./data:/data/postgres"
+      - ./nginx/templates:/etc/nginx/templates
     ports:
       - "${WEB_PORT}:80"
     restart: unless-stopped
