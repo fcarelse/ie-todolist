@@ -1,0 +1,55 @@
+version: "3.3"
+services:
+  # todolist_db:
+  #   container_name: todolist-postgres
+  #   image: postgres
+  #   env_file:
+  #     - ./.env
+  #     - ./.env.example
+  #   environment:
+  #     - POSTGRES_USER=${POSTGRES_USER}
+  #     - POSTGRES_PASSWORD=${POSTGRES_PASSWORD}
+  #     - PGDATA=/data/postgres
+  #   volumes:
+  #     - "./data:/data/postgres"
+  #   ports:
+  #     - "${POSTGRES_PORT}:5432"
+  #   restart: unless-stopped
+  #   networks:
+  #     - ie-todolist-network
+
+  todolist_javaonly:
+    container_name: todolist-javaonly
+    image: openjdk:19
+    env_file:
+      - ./.env
+      - ./.env.example
+    volumes:
+      - "./api/target:/usr/src/myapp"
+    ports:
+      - "${API_PORT}:${API_PORT}"
+    restart: unless-stopped
+    command: "java -jar /usr/src/myapp/api-1.0.1.war"
+    networks:
+      - ie-todolist-network
+
+  todolist_nginx:
+    container_name: todolist-nginx
+    image: nginx
+    env_file:
+      - ./.env
+      - ./.env.example
+    environment:
+      - POSTGRES_USER=${POSTGRES_USER}
+      - POSTGRES_PASSWORD=${POSTGRES_PASSWORD}
+      - PGDATA=/data/postgres
+    volumes:
+      - "./data:/data/postgres"
+    ports:
+      - "${WEB_PORT}:80"
+    restart: unless-stopped
+    networks:
+      - ie-todolist-network
+
+networks:
+  ie-todolist-network:

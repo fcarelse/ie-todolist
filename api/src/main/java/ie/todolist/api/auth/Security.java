@@ -31,7 +31,9 @@ public class Security {
       .csrf(AbstractHttpConfigurer::disable)
       .authorizeHttpRequests(authorize->authorize
         .requestMatchers(WHITELIST).permitAll()
-        .anyRequest().authenticated()
+        .anyRequest()
+          .permitAll()
+          //.authenticated()
       )
       .sessionManagement(session->session.sessionCreationPolicy(STATELESS))
 //      .authenticationProvider(authenticationProvider)
