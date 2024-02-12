@@ -33,18 +33,35 @@ services:
     networks:
       - ie-todolist-network
 
+  todolist_httpd:
+    depends_on:
+      - todolist_db
+      - todolist_java
+    container_name: todolist_httpd
+    image: httpd:2.4
+    env_file:
+      - ./.env
+      - ./.env.example
+    volumes:
+      - "./client/build:/usr/local/apache2/htdocs"
+      - "./httpd/httpd.conf:/usr/local/apache2/conf/httpd.conf"
+    restart: unless-stopped
+    networks:
+      - ie-todolist-network
+
   todolist_nginx:
     depends_on:
       - todolist_db
       - todolist_java
+      - todolist_httpd
     container_name: todolist_nginx
     image: nginx
     env_file:
       - ./.env
       - ./.env.example
     volumes:
-      - "./nginx/conf.d:/etc/nginx/conf.d"
-      - "./client/build:/var/www/html"
+      - "./nginx/demo.conf:/etc/nginx/conf.d/default.conf"
+      # - "./client/build:/var/www/html"
     ports:
       - "${WEB_PORT}:80"
     restart: unless-stopped
