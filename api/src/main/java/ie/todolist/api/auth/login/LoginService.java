@@ -56,4 +56,19 @@ public class LoginService {
     return new MessageResponse("Logged out", 200);
   }
 
+  public Boolean loggedin(HttpServletRequest request) {
+    final String authHeader = request.getHeader("Authorization");
+    final String jwt;
+    final String sessionID;
+    if(authHeader == null || !authHeader.startsWith("Bearer ")){
+      return false;
+    }
+    jwt = authHeader.substring(7);
+    sessionID = jwtService.extractSubject(jwt);
+    var session = sessionRepository.findById(sessionID)
+      .orElse(null);
+    return session != null;
+  }
+
+
 }

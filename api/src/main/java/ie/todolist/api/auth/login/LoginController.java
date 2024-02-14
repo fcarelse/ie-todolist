@@ -5,10 +5,7 @@ import jakarta.servlet.http.HttpServletRequest;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.lang.NonNull;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequestMapping("/api/user")
@@ -18,7 +15,7 @@ public class LoginController {
   private final LoginService service;
 
   @PostMapping("/login")
-  public ResponseEntity<LoginResponse> authenticate(
+  public ResponseEntity<LoginResponse> login(
     @NonNull @RequestBody LoginRequest request
   ){
     return ResponseEntity.ok(service.login(request));
@@ -26,8 +23,16 @@ public class LoginController {
 
   @PostMapping("/logout")
   public ResponseEntity<MessageResponse> logout(
-    HttpServletRequest request
+    @RequestBody HttpServletRequest request
   ){
     return ResponseEntity.ok(service.logout(request));
   }
+
+  @PostMapping("/loggedIn")
+  public ResponseEntity<Boolean> loggedIn(
+    @RequestBody HttpServletRequest request
+  ){
+    return ResponseEntity.ok(service.loggedin(request));
+  }
+
 }
