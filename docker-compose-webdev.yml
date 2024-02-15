@@ -40,7 +40,7 @@ services:
       - ./.env
       - ./.env.example
     volumes:
-      - "./client/stage:/usr/local/apache2/htdocs"
+      - "./client/public/.htaccess.webdev:/usr/local/apache2/htdocs/.htaccess"
       - "./httpd/httpd.conf:/usr/local/apache2/conf/httpd.conf"
     restart: unless-stopped
     networks:
