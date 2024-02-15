@@ -10,6 +10,7 @@ import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.Optional;
 
 @RestController
 @AllArgsConstructor
@@ -22,8 +23,9 @@ public class TodoController {
   @GetMapping("/todos")
   public ResponseEntity<List<Todo>> getTodos(){
     Authentication auth = SecurityContextHolder.getContext().getAuthentication();
+    if(auth==null) return ResponseEntity.ok(List.of());
     User user = (User) auth.getPrincipal();
-//    System.out.println(user.getId());
+    System.out.println(user.toString());
     var todos = todoRepository.findByUserId(user.getId())
       .orElseThrow();
     return ResponseEntity.ok(todos);

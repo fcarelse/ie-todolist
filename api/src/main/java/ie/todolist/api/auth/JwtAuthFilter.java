@@ -43,7 +43,11 @@ public class JwtAuthFilter extends OncePerRequestFilter {
     jwt = authHeader.substring(7);
     sessionID = jwtService.extractSubject(jwt);
     session = sessionRepository.findById(sessionID)
-      .orElseThrow();
+      .orElse(null);
+    if(session == null){
+      response.sendError(403, "Token invalid");
+      return;
+    }
     userEmail = session.getEmail();
     if(userEmail != null && SecurityContextHolder.getContext().getAuthentication() == null){
       UserDetails userDetails = this.userDetailsService.loadUserByUsername(userEmail);

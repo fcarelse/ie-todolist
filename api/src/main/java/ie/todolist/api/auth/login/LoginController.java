@@ -23,16 +23,16 @@ public class LoginController {
 
   @PostMapping("/logout")
   public ResponseEntity<MessageResponse> logout(
-    @RequestBody HttpServletRequest request
+    @RequestBody LogoutRequest request
   ){
     return ResponseEntity.ok(service.logout(request));
   }
 
-  @PostMapping("/loggedIn")
+  @GetMapping("/loggedIn")
   public ResponseEntity<Boolean> loggedIn(
     @RequestBody HttpServletRequest request
   ){
-    return ResponseEntity.ok(service.loggedin(request));
+    return ResponseEntity.ok(service.loggedIn(request));
   }
 
 }

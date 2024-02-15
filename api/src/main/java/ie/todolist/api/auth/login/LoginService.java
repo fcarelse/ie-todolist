@@ -40,23 +40,21 @@ public class LoginService {
       .build();
   }
 
-  public MessageResponse logout(HttpServletRequest request) {
-    final String authHeader = request.getHeader("Authorization");
-    final String jwt;
+  public MessageResponse logout(LogoutRequest request) {
+    final String jwt = request.getToken();
     final String sessionID;
-    if(authHeader == null || !authHeader.startsWith("Bearer ")){
-      return new MessageResponse(403, "No auth token");
-    }
-    jwt = authHeader.substring(7);
     sessionID = jwtService.extractSubject(jwt);
     var session = sessionRepository.findById(sessionID)
-      .orElseThrow();
+      .orElse(null);
+    if(session == null){
+      return new MessageResponse(403, "No session found");
+    }
     System.out.println(session.getEmail());
     sessionRepository.delete(session);
     return new MessageResponse("Logged out", 200);
   }
 
-  public Boolean loggedin(HttpServletRequest request) {
+  public Boolean loggedIn(HttpServletRequest request) {
     final String authHeader = request.getHeader("Authorization");
     final String jwt;
     final String sessionID;
