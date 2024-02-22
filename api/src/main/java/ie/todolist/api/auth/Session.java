@@ -16,7 +16,6 @@ public class Session {
   @Id()
   @GeneratedValue(strategy = GenerationType.UUID)
   private String id;
-  @Column(unique = true)
   private String email;
   private Date expiry;
 }

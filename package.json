@@ -1,0 +1,32 @@
+{
+  "name": "ie-todolist",
+  "version": "0.1.0",
+  "description": "Todolist.ie",
+  "main": "index.js",
+  "scripts": {
+    "web:up": "docker compose -f docker-compose-webdev.yml up -d",
+    "web:down": "docker compose -f docker-compose-webdev.yml down",
+    "ppredemo:up": "bash -c \"cd client && npm run build\"",
+    "demo:up": "docker compose -f docker-compose-demo.yml up -d",
+    "demo:down": "docker compose -f docker-compose-demo.yml down",
+    "webapi:up": "docker compose -f docker-compose-webdev+apidev.yml up -d",
+    "webapi:down": "docker compose -f docker-compose-webdev+apidev.yml down",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/fcarelse/ie-todolist.git"
+  },
+  "keywords": [
+    "Todolist",
+    "Francis",
+    "Carelse",
+    "Demo"
+  ],
+  "author": "Francis Carelse",
+  "license": "UNLICENSED",
+  "bugs": {
+    "url": "https://github.com/fcarelse/ie-todolist/issues"
+  },
+  "homepage": "https://github.com/fcarelse/ie-todolist#readme"
+}

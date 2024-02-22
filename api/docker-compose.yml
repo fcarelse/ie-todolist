@@ -1,19 +1,17 @@
-version: '3.3'
+version: "3.3"
 services:
-
   todolist-tomcat-mysql:
     container_name: todolist-tomcat-mysql
     image: mysql:5.7
     ports:
       - "3306:3306"
-    env_file:
-      ./.env
+    env_file: ./.env
     # environment:
-    #   MYSQL_ROOT_PASSWORD: root
-    #   MYSQL_DATABASE: testdb1
-    #   MYSQL_PORT: 3306
-    #   MYSQL_USER: testuser
-    #   MYSQL_PASSWORD: root
+    #   - MYSQL_ROOT_PASSWORD=root
+    #   - MYSQL_DATABASE=testdb1
+    #   - MYSQL_PORT=3306
+    #   - MYSQL_USER=testuser
+    #   - MYSQL_PASSWORD=root
 
   todolist-tomcat-phpmyadmin:
     container_name: todolist-tomcat-phpmyadmin
@@ -21,13 +19,12 @@ services:
       - todolist-tomcat-mysql
     image: phpmyadmin/phpmyadmin
     ports:
-      - '8580:80'
-    env_file:
-      ./.env
+      - "8580:80"
+    env_file: ./.env
     # environment:
-    #   PMA_HOST: todolist-tomcat-mysql
-    #   MYSQL_PORT: 3306
-    #   MYSQL_ROOT_PASSWORD: root
+    #   - PMA_HOST=todolist-tomcat-mysql
+    #   - MYSQL_PORT=3306
+    #   - MYSQL_ROOT_PASSWORD=root
 
   todolist_tomcat:
     depends_on:
@@ -39,14 +36,12 @@ services:
       - ./tomcat/:/usr/local/tomcat/webapps/
       - ./.env:/usr/local/tomcat/bin/setenv.sh
     ports:
-      - '8380:8080'
-      - '3003:3000'
-    env_file:
-      ./.env
+      - "8380:8080"
+      - "3003:3000"
+    env_file: ./.env
     # environment:
-    #   MYSQL_ROOT_PASSWORD: root
-    #   MYSQL_DATABASE: testdb1
-    #   MYSQL_PORT: 3306
-    #   MYSQL_USER: testuser
-    #   MYSQL_PASSWORD: root
-
+    #   - MYSQL_ROOT_PASSWORD=root
+    #   - MYSQL_DATABASE=testdb1
+    #   - MYSQL_PORT=3306
+    #   - MYSQL_USER=testuser
+    #   - MYSQL_PASSWORD=root

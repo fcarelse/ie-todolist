@@ -1,0 +1,25 @@
+version: "3.3"
+
+services:
+  todolist_nginx:
+    container_name: todolist-nginx
+    image: nginx
+    env_file:
+      - ./.env
+      - ./.env.example
+    environment:
+      - NGINX_HOST=foobar.com
+      - NGINX_PORT=80
+      - POSTGRES_USER=${POSTGRES_USER}
+      - POSTGRES_PASSWORD=${POSTGRES_PASSWORD}
+      - PGDATA=/data/postgres
+    volumes:
+      - ./templates:/etc/nginx/templates
+    ports:
+      - "${WEB_PORT}:80"
+    restart: unless-stopped
+    networks:
+      - ie-todolist-network
+
+networks:
+  ie-todolist-network:
