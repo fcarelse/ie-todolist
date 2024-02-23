@@ -1,6 +1,6 @@
 package ie.todolist.api.auth.login;
 
-import ie.todolist.api.service.MessageResponse;
+import ie.todolist.api.service.response.MessageResponse;
 import jakarta.servlet.http.HttpServletRequest;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;

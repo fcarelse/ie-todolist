@@ -1,7 +1,10 @@
 package ie.todolist.api.auth.login;
 
 import ie.todolist.api.auth.*;
-import ie.todolist.api.service.MessageResponse;
+import ie.todolist.api.service.response.MessageResponse;
+import ie.todolist.api.service.session.Session;
+import ie.todolist.api.service.session.SessionRepository;
+import ie.todolist.api.service.user.UserRepository;
 import jakarta.servlet.http.HttpServletRequest;
 import lombok.RequiredArgsConstructor;
 import org.springframework.security.authentication.AuthenticationManager;

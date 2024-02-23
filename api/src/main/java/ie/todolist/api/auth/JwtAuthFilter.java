@@ -1,5 +1,8 @@
 package ie.todolist.api.auth;
 
+import ie.todolist.api.service.session.Session;
+import ie.todolist.api.service.session.SessionRepository;
+import ie.todolist.api.service.user.UserRepository;
 import jakarta.servlet.FilterChain;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServletRequest;

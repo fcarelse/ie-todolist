@@ -109,18 +109,20 @@ components:
     Todolist:
       type: object
       properties:
+        id:
+          type: string
         todos:
           type: array
           items:
             $ref: '#/components/schemas/Todo'
-        hash:
-          type: string
     Todo:
       type: object
       properties:
-        summary:
+        id:
           type: string
-        details:
+        listId:
+          type: string
+        label:
           type: string
         status:
           $ref: '#/components/schemas/TodoStatus'

@@ -1,6 +1,6 @@
 package ie.todolist.api;
 
-import ie.todolist.api.auth.UserRepository;
+import ie.todolist.api.service.user.UserRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

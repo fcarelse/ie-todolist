@@ -1,7 +1,7 @@
 package ie.todolist.api.auth;
 
-import ie.todolist.api.auth.Session;
-import ie.todolist.api.auth.SessionRepository;
+import ie.todolist.api.service.session.Session;
+import ie.todolist.api.service.session.SessionRepository;
 import io.jsonwebtoken.Claims;
 import io.jsonwebtoken.Jwts;
 import io.jsonwebtoken.SignatureAlgorithm;

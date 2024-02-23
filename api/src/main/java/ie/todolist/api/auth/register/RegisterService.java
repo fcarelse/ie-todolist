@@ -1,7 +1,12 @@
 package ie.todolist.api.auth.register;
 
 import ie.todolist.api.auth.*;
-import ie.todolist.api.service.MessageResponse;
+import ie.todolist.api.service.response.MessageResponse;
+import ie.todolist.api.service.session.Session;
+import ie.todolist.api.service.session.SessionRepository;
+import ie.todolist.api.service.user.UserEntity;
+import ie.todolist.api.service.user.UserRepository;
+import ie.todolist.api.service.role.Role;
 import jakarta.servlet.http.HttpServletRequest;
 import lombok.RequiredArgsConstructor;
 import org.springframework.security.authentication.AuthenticationManager;
@@ -21,12 +26,12 @@ public class RegisterService {
   private final AuthenticationManager authenticationManager;
 
   public RegisterResponse register(RegisterRequest request) {
-    var user = User.builder()
+    var user = UserEntity.builder()
       .first(request.getFirst())
       .last(request.getLast())
       .email(request.getEmail())
       .password(passwordEncoder.encode(request.getPassword()))
-      .role(UserRole.USER)
+      .role(Role.USER)
       .locked(false)
       .verified(true) // To be set to false once verification process enabled
       .build();
