@@ -65,7 +65,10 @@ public class TodoController {
   public ResponseEntity<MessageResponse> putTodo(@PathVariable String id,@RequestBody TodoEntity newTodo){
     Authentication auth = SecurityContextHolder.getContext().getAuthentication();
     UserEntity user = (UserEntity) auth.getPrincipal();
-    TodoEntity todo = todoRepository.findById(id).orElseThrow();
+    TodoEntity todo = todoRepository.findById(id).orElse(null);
+    if(todo == null){
+      return ResponseEntity.ok(new MessageResponse(404,"Todo Record not found"));
+    }
     todo.setDetails(newTodo.getDetails());
     todo.setSummary(newTodo.getSummary());
     todo.setStatus(newTodo.getStatus());

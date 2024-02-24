@@ -8,7 +8,7 @@ spring:
     jdbc:
       table-name: SESSIONS
   datasource:
-    url: jdbc:postgresql://${POSTGRES_SERVER:localhost}:${POSTGRES_PORT:5332}/${POSTGRES_PATH:todolist}
+    url: jdbc:postgresql://${POSTGRES_SERVER:localhost}:${POSTGRES_PORT:5432}/${POSTGRES_PATH:todolist}
     driver-class-name: org.postgresql.Driver
     username: ${POSTGRES_USER:todolist}
     password: ${POSTGRES_PASSWORD:password}
