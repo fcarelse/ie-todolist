@@ -1,0 +1,21 @@
+version: "3.3"
+services:
+  todolist_javaonly:
+    container_name: todolist-javaonly
+    image: openjdk:19
+    environment:
+      - POSTGRES_SERVER=todolist_db
+    env_file:
+      - ./.env
+      - ./.env.example
+    volumes:
+      - "./api/target:/usr/src/myapp"
+    # ports:
+    #   - "${API_PORT}:${API_PORT}"
+    # restart: unless-stopped
+    command: "java -jar /usr/src/myapp/api-1.0.1.war"
+    networks:
+      - ie-todolist-network
+
+networks:
+  ie-todolist-network:

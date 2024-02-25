@@ -1,0 +1,37 @@
+server:
+  port: ${API_PORT:3300}
+
+spring:
+  profiles:
+    active: dev
+  session:
+    jdbc:
+      table-name: SESSIONS
+  datasource:
+    url: jdbc:postgresql://${POSTGRES_SERVER:localhost}:${POSTGRES_PORT:5432}/${POSTGRES_PATH:todolist}
+    driver-class-name: org.postgresql.Driver
+    username: ${POSTGRES_USERNAME:todolist}
+    password: ${POSTGRES_PASSWORD:password}
+  jpa:
+    hibernate:
+      ddl-auto: create-drop
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.PostgreSQLDialect
+        format_sql: true
+    database: postgresql
+    database-platform: org.hibernate.dialect.PostgreSQLDialect
+    show-sql: true
+  main:
+    web-application-type: servlet
+  mail:
+    host: ${EMAIL_HOST}
+    port: ${EMAIL_PORT}
+    username: ${EMAIL_USERNAME}
+    password: ${EMAIL_PASSWORD}
+    properties:
+      mail:
+        smtp:
+          auth: true
+          starttls:
+            enable: true

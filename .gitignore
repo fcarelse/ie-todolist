@@ -74,6 +74,8 @@ web_modules/
 
 # dotenv environment variable files
 .env
+db/.env
+api/.env
 .env.development.local
 .env.test.local
 .env.production.local
@@ -128,3 +130,8 @@ dist
 .yarn/build-state.yml
 .yarn/install-state.gz
 .pnp.*
+
+#extra
+.idea/
+.vscode/
+db/data/

@@ -4,7 +4,7 @@ info:
   description: Todolist service
   version: 0.1.1
 servers:
-  - url: https://todolist.ie/
+  - url: https://api.todolist.ie/
     description: Prod Web server
   - url: https://dev.todolist.ie/
     description: Dev Web server
@@ -19,7 +19,7 @@ paths:
         content:
           'application/json':
             schema:
-              $ref: '#/components/schemas/Registration'
+              $ref: '#/components/schemas/User'
       responses:
         '200':
           description: Registration made
@@ -34,8 +34,15 @@ paths:
               schema:
                 $ref: '#/components/schemas/ErrorResponse'
   /user/login:
-    get:
+    post:
       summary: Log in to a user account
+      requestBody:
+        description: Request to create a user account
+        required: true
+        content:
+          'application/json':
+            schema:
+              $ref: '#/components/schemas/Credentials'
       responses:
         '200':
           description: Successfully Log in
@@ -53,64 +60,69 @@ paths:
             'application/json':
               schema:
                 type: boolean
-  /rest/registration:
+  /rest/user:
     get:
-      summary: List registrations
+      summary: List users
       responses:
         '200':
-          description: Successfully lists registations
+          description: Successfully lists users
           content:
             'application/json':
               schema:
                 type: array
                 items:
-                  $ref: '#/components/schemas/Registration'
-  /rest/todolist:
+                  $ref: '#/components/schemas/User'
+  /rest/todos:
     get:
-      summary: Log in to a user account
+      summary: Retrieve all todos for the current user
       responses:
         '200':
-          description: Successfully Log in
+          description: Selected Todolist
           content:
             'application/json':
               schema:
                 $ref: '#/components/schemas/SuccessResponse'
 components:
   schemas:
-    Registration:
-      type: object
-      properties:
-        email:
-          type: string
-          format: email
     User:
       type: object
       properties:
         email:
           type: string
-        salt:
+        password:
           type: string
-        hash:
-          type: string
+        locked:
+          type: boolean
+        verified:
+          type: boolean
         roles:
           type: array
           items:
             $ref: '#/components/schemas/UserRole'
+    Credentials:
+      type: object
+      properties:
+        email:
+          type: string
+        password:
+          type: string
     Todolist:
       type: object
       properties:
+        id:
+          type: string
         todos:
           type: array
           items:
             $ref: '#/components/schemas/Todo'
-        hash:
-          type: string
     Todo:
       type: object
       properties:
-        summary:
+        id:
           type: string
-        details:
+        listId:
+          type: string
+        label:
           type: string
         status:
           $ref: '#/components/schemas/TodoStatus'
@@ -141,7 +153,12 @@ components:
       content:
         application/json:
           schema:
-            $ref: '#/components/schemas/Registration'
+            $ref: '#/components/schemas/User'
+    credentials:
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Credentials'
     todolist:
       content:
         application/json:
@@ -157,4 +174,9 @@ components:
       summary: An example registration
       value:
         email: bob@example.com
-        captcha: dC4Jk2
+        password: aPassword4239
+    credentials:
+      summary: Example login credentials
+      value:
+        email: bob@todolist.ie
+        password: password
